@@ -9,9 +9,7 @@ class Contact extends Component {
     this.setState({ showContactInfo: !this.state.showContactInfo });
   };
 
-  onDeleteClick = () => {
-    this.props.deleteClickHandler();
-  };
+  onDeleteClick = () => {};
 
   render() {
     const { name, email, phone } = this.props.contact;
@@ -43,8 +41,7 @@ class Contact extends Component {
 }
 
 Contact.propTypes = {
-  contact: PropTypes.object.isRequired,
-  deleteClickHandler: PropTypes.func.isRequired
+  contact: PropTypes.object.isRequired
 };
 
 export default Contact;

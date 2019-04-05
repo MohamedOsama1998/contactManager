@@ -13,7 +13,7 @@ export default class AddContact extends Component {
       email: "",
       phone: ""
     },
-    shown: true
+    shown: false
   };
 
   showAddContact = () => {

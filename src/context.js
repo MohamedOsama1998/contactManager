@@ -11,8 +11,11 @@ const reducer = (state, action) => {
           contact => contact.id !== action.payload
         )
       };
-    // case 'ADD_ACC':
-    //
+    case "ADD_ACC":
+      return {
+        ...state,
+        contacts: [...state.contacts, action.payload]
+      };
     default:
       return state;
   }

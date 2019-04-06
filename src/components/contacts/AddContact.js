@@ -12,8 +12,7 @@ export default class AddContact extends Component {
       name: "",
       email: "",
       phone: ""
-    },
-    shown: false
+    }
   };
 
   showAddContact = () => {
@@ -21,7 +20,6 @@ export default class AddContact extends Component {
       name: "",
       email: "",
       phone: "",
-      shown: !this.state.shown,
       errors: {
         name: "",
         email: "",
@@ -75,6 +73,7 @@ export default class AddContact extends Component {
           phone: ""
         }
       });
+      this.props.history.push("/");
     }
   };
 
@@ -94,44 +93,42 @@ export default class AddContact extends Component {
                     onClick={this.showAddContact}
                     className="fas fa-sort-down"
                   />
-                  {shown ? (
-                    <div className="card-body">
-                      <form onSubmit={this.onSubmit.bind(this, dispatch)}>
-                        <TextInputGroup
-                          label="Name"
-                          name="name"
-                          placeholder="Enter Name..."
-                          value={name}
-                          type="text"
-                          onChange={this.onChange}
-                          error={errors.name}
-                        />
-                        <TextInputGroup
-                          label="Email"
-                          name="email"
-                          placeholder="Enter Email..."
-                          value={email}
-                          type="email"
-                          onChange={this.onChange}
-                          error={errors.email}
-                        />
-                        <TextInputGroup
-                          label="Phone"
-                          name="phone"
-                          placeholder="Enter Phone..."
-                          value={phone}
-                          type="number"
-                          onChange={this.onChange}
-                          error={errors.phone}
-                        />
-                        <input
-                          type="submit"
-                          value="Add Contact"
-                          className="btn btn-block btn-light"
-                        />
-                      </form>
-                    </div>
-                  ) : null}
+                  <div className="card-body">
+                    <form onSubmit={this.onSubmit.bind(this, dispatch)}>
+                      <TextInputGroup
+                        label="Name"
+                        name="name"
+                        placeholder="Enter Name..."
+                        value={name}
+                        type="text"
+                        onChange={this.onChange}
+                        error={errors.name}
+                      />
+                      <TextInputGroup
+                        label="Email"
+                        name="email"
+                        placeholder="Enter Email..."
+                        value={email}
+                        type="email"
+                        onChange={this.onChange}
+                        error={errors.email}
+                      />
+                      <TextInputGroup
+                        label="Phone"
+                        name="phone"
+                        placeholder="Enter Phone..."
+                        value={phone}
+                        type="text"
+                        onChange={this.onChange}
+                        error={errors.phone}
+                      />
+                      <input
+                        type="submit"
+                        value="Add Contact"
+                        className="btn btn-block btn-light"
+                      />
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

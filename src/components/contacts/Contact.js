@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { Consumer } from "../../context";
+import axios from "axios";
 
 class Contact extends Component {
   state = {
@@ -10,7 +12,9 @@ class Contact extends Component {
     this.setState({ showContactInfo: !this.state.showContactInfo });
   };
 
-  onDeleteClick = (id, dispatch) => {
+  onDeleteClick = async (id, dispatch) => {
+    await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+
     dispatch({
       type: "DEL_ACC",
       payload: id
@@ -39,6 +43,16 @@ class Contact extends Component {
                   style={{ cursor: "pointer", color: "red", float: "right" }}
                   onClick={this.onDeleteClick.bind(this, id, dispatch)}
                 />
+                <Link to={`edit/${id}`}>
+                  <i
+                    className="fas fa-pencil-alt"
+                    style={{
+                      color: "black",
+                      float: "right",
+                      marginRight: "1rem"
+                    }}
+                  />
+                </Link>
               </h4>
               {showContactInfo ? (
                 <ul className="list-group">

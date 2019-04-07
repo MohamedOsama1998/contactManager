@@ -6,9 +6,9 @@ function Header() {
     <div>
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-3 py-0">
         <div className="container">
-          <a href="/" className="navbar-brand">
+          <Link to="/" className="navbar-brand">
             Contact Manager
-          </a>
+          </Link>
           <div>
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
